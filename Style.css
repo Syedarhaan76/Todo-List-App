@@ -1,0 +1,185 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+body {
+    background-color: rgb(112, 85, 112);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+h1 {
+    text-align: center;
+    color: rgb(15, 73, 7);
+    border: none;
+    width: fit-content;
+    padding: 10px 20px;
+    margin-top: 40px;
+    border-radius: 30px;
+    background-color: aliceblue;
+    box-shadow: 3px 4px 8px;
+    animation: fadeIn 1s ease-in-out; /* 🟢 Title Fade-in Effect */
+}
+
+/* Main Todo Box */
+.todo-box {
+    width: 90%;
+    max-width:900px;
+    background-color: antiquewhite;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 20px;
+    animation: slideIn 1s ease-in-out; /* 🟢 Smooth Slide-In */
+}
+
+/* Input and Button Styling */
+.inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+#input, #date-input {
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    text-align: center;
+    padding: 5px;
+    transition: 0.3s ease-in-out; /* 🟢 Smooth Transition */
+}
+#input:focus, #date-input:focus {
+    background-color: rgb(112, 85, 112);
+    color: antiquewhite;
+    transform: scale(1.05); /* 🟢 Slight Scale-Up on Focus */
+}
+#input:focus::placeholder {
+    color: antiquewhite;
+}
+
+/* Add Button Animations */
+.inputs #btn {
+    width: 100%;
+    max-width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(20, 65, 66);
+    color: aliceblue;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* 🟢 Smooth Hover Effect */
+}
+.inputs #btn:hover {
+    background-color: rgb(170, 102, 78);
+    transform: scale(1.1); /* 🟢 Scale-Up on Hover */
+}
+
+/* Task Styling */
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px gray;
+    word-break: break-word;
+    flex-wrap: wrap;
+    gap: 500px;
+    opacity: 0;
+    animation: fadeInTask 0.5s ease-in-out forwards; /* 🟢 Fade-In Animation for Tasks */
+}
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* 🟢 Smooth Transition */
+}
+.delete-btn:hover {
+    background-color: darkred;
+    transform: scale(1.1); /* 🟢 Slight Scale-Up on Hover */
+}
+
+/* ✅ RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+    .todo-box {
+        width: 95%;
+        padding: 15px;
+    }
+    .inputs {
+        flex-direction: column;
+        align-items: center;
+    }
+    #input, #date-input, #btn {
+        width: 100%;
+    }
+    .task {
+        
+        text-align: center;
+        gap: 150px;
+    }
+}
+@media (max-width: 725px){
+    .todo-box{
+        display: block;
+    }
+}
+
+/* ✅ ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInTask {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Slide-Out Effect for Deleted Tasks */
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
